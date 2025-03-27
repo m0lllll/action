@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showImage() {
+            const img = document.createElement('img');
+            img.src = 'f:/sapomeme.png';
+            img.style.display = 'block';
+            img.style.margin = '20px auto';
+            img.style.width = '100%'; // Make the image large
+            document.body.appendChild(img);
+
+            const text = document.createElement('h1');
+            text.innerText = 'jsjajhaajhs jodete';
+            text.style.textAlign = 'center';
+            text.style.fontSize = '5em';
+            text.style.position = 'absolute';
+            text.style.top = '50%';
+            text.style.left = '50%';
+            text.style.transform = 'translate(-50%, -50%)';
+            text.style.color = 'red';
+            document.body.appendChild(text);
+        }
+
+        document.body.innerHTML = '<h1 style="text-align: center; font-size: 5em;">Eres gilipollas?</h1>';
+        document.body.innerHTML += '<div style="text-align: center; margin-top: 20px;">' +
+               '<button id="yesButton" style="font-size: 3em; padding: 15px 30px;">Sí</button>' +
+               '<button id="noButton" style="font-size: 3em; padding: 15px 30px; margin-left: 10px;">No</button>' +
+               '</div>';
+
+        const yesButton = document.getElementById('yesButton');
+        yesButton.onclick = function() {
+            alert('lo admistes');
+            document.body.innerHTML = ''; // Clear the body content
+            showImage();
+        };
+
+        const noButton = document.getElementById('noButton');
+        noButton.onmouseover = function() {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        };
+    </script>
+</body>
+</html>
